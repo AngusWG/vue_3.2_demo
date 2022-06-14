@@ -12,7 +12,11 @@
 
       <el-form-item prop="password">
         <svg-icon icon="password" class="svg-container"></svg-icon>
-        <el-input v-model="form.password"></el-input>
+        <el-input v-model="form.password" :type="passwordType"></el-input>
+        <svg-icon
+          :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
+          @click="changeType"
+        ></svg-icon>
       </el-form-item>
 
       <el-button type="primary" class="login-button" @click="handleLogin"
@@ -24,9 +28,11 @@
 
 <script setup>
 import { ref } from 'vue'
+import { login } from '@/apis/login'
+
 const form = ref({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '123456'
 })
 const rules = ref({
   username: [
@@ -47,14 +53,24 @@ const rules = ref({
 
 const formRef = ref()
 const handleLogin = () => {
-  formRef.value.validate((valid) => {
+  formRef.value.validate(async (valid) => {
     if (valid) {
-      console.log('submit!')
+      const res = await login(form.value)
+      console.log(res)
     } else {
       console.log('error submit!')
       return false
     }
   })
+}
+
+const passwordType = ref('password')
+const changeType = () => {
+  if (passwordType.value === 'password') {
+    passwordType.value = 'text'
+  } else {
+    passwordType.value = 'password'
+  }
 }
 </script>
 
