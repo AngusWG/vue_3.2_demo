@@ -17,6 +17,7 @@ import Breadcrumb from './componements/breadcrumb.vue'
 import Avatar from './componements/avatar.vue'
 import Lang from './componements/langUilts.vue'
 import screenFull from './componements/screenFull.vue'
+import Driver from './componements/driver'
 </script>
 
 <style lang="scss" scoped>
