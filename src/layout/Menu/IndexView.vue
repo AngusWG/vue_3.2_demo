@@ -1,12 +1,13 @@
 <template>
   <el-menu
     active-text-color="#ffd04b"
-    background-color="variables.menuBg"
+    :background-color="variables.menuBg"
     class="el-menu-vertical-demo"
     :default-active="defaultActive"
     text-color="#fff"
     router
     unique-opened
+    :collapse="!$store.getters.siderType"
   >
     <el-sub-menu
       :index="item.id"
@@ -22,7 +23,7 @@
       <el-menu-item
         :index="'/' + it.path"
         v-for="it in item.children"
-        :key="it.it"
+        :key="it.id"
         @click="savePath(it.path)"
       >
         <template #title>
@@ -39,9 +40,9 @@
 <script setup>
 import { menuList } from '@/apis/menu'
 import { ref } from 'vue'
-// import variables from '@/styles/variables.scss'
+import variables from '@/styles/variables.module.scss'
 
-const iconList = ref(['user', 'setting', 'shop', 'tickets', 'pip-chart'])
+const iconList = ref(['user', 'setting', 'shop', 'tickets', 'pie-chart'])
 const icon = ref('menu')
 
 const defaultActive = ref(sessionStorage.getItem('path') || '/users')
