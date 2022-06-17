@@ -1,20 +1,18 @@
 <template>
-  <div class="common-layout">
-    <el-container class="app-wrapper">
-      <el-aside :width="asideWidth" class="sidebar-container">
-        <Menu />
-      </el-aside>
-      <el-container
-        class="container"
-        :class="{ hidderContainer: !store.getters.siderType }"
-      >
-        <el-header>
-          <Headers />
-        </el-header>
-        <el-main> <router-view /></el-main>
-      </el-container>
+  <el-container class="app-wrapper">
+    <el-aside :width="asideWidth" class="sidebar-container">
+      <Menu />
+    </el-aside>
+    <el-container
+      class="container"
+      :class="{ hidderContainer: !$store.getters.siderType }"
+    >
+      <el-header><Headers /></el-header>
+      <el-main>
+        <router-view />
+      </el-main>
     </el-container>
-  </div>
+  </el-container>
 </template>
 
 <script setup>
