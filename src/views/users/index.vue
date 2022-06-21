@@ -37,7 +37,12 @@
             @click="initGetUsersList(row)"
           ></el-button>
           <el-button type="warning" size="small" :icon="Setting"></el-button>
-          <el-button type="danger" size="small" :icon="Delete"></el-button>
+          <el-button
+            type="danger"
+            size="small"
+            :icon="Delete"
+            @click="delUser(row)"
+          ></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -154,5 +159,11 @@ const delUser = (row) => {
 
 ::v-deep .el-input_suffix {
   align-items: center;
+}
+
+::v-deep .el-pagination {
+  padding-top: 16px;
+  box-sizing: border-box;
+  text-align: right;
 }
 </style>
