@@ -50,7 +50,7 @@ const asideWidth = computed(() => {
     width: calc(100% - $hideSideBarWidth);
   }
 }
-::v-deep .el-header {
+:deep(.el-header) {
   padding: 0;
 }
 </style>

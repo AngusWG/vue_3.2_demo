@@ -157,11 +157,11 @@ const delUser = (row) => {
   box-sizing: border-box;
 }
 
-::v-deep .el-input_suffix {
+:deep(.el-input_suffix) {
   align-items: center;
 }
 
-::v-deep .el-pagination {
+:deep(.el-pagination) {
   padding-top: 16px;
   box-sizing: border-box;
   text-align: right;
